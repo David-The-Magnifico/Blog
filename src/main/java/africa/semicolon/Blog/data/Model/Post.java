@@ -1,5 +1,6 @@
 package java.africa.semicolon.Blog.data.Model;
 
+import africa.semicolon.Blog.data.Model.Comment;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Data
 @Document("Posts")
-public class BlogPost {
+public class Post {
     @Id
     private String id;
     private String title;
