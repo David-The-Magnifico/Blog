@@ -8,15 +8,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("Admin")
 public class Admin {
     @Id
-    private String id;
+    private String adminId;
     private String role;
 
     public Admin() {
         this.role = "admin";
     }
 
-    public Admin(String id, String role) {
-        this.id = id;
+    public Admin(String adminId, String role) {
+        this.adminId = adminId;
         this.role = role;
     }
 }
