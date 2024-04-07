@@ -4,7 +4,6 @@ import africa.semicolon.Blog.DTOs.request.*;
 import africa.semicolon.Blog.DTOs.response.*;
 import africa.semicolon.Blog.data.Model.*;
 import africa.semicolon.Blog.DTOs.response.ViewsCountResponse;
-import java.africa.semicolon.Blog.data.Model.Post;
 import java.time.format.DateTimeFormatter;
 
 public final class Mapper {
