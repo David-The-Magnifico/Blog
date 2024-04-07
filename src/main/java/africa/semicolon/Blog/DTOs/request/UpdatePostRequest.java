@@ -3,7 +3,7 @@ package africa.semicolon.Blog.DTOs.request;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.africa.semicolon.Blog.data.Model.Post;
+import africa.semicolon.Blog.data.Model.Post;
 
 @Data
 @AllArgsConstructor
