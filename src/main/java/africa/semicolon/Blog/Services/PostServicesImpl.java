@@ -8,7 +8,6 @@ import africa.semicolon.Blog.data.Repository.Posts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.africa.semicolon.Blog.data.Model.Post;
 import java.util.Optional;
 
 import static africa.semicolon.Blog.Utils.Mapper.*;
