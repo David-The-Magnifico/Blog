@@ -1,6 +1,5 @@
-package java.africa.semicolon.Blog.data.Model;
+package africa.semicolon.Blog.data.Model;
 
-import africa.semicolon.Blog.data.Model.Comment;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
