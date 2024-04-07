@@ -3,12 +3,11 @@ package africa.semicolon.Blog.Services;
 import africa.semicolon.Blog.DTOs.request.*;
 import africa.semicolon.Blog.DTOs.response.*;
 import africa.semicolon.Blog.Exception.*;
-import africa.semicolon.Blog.data.Model.User;
+import africa.semicolon.Blog.data.Model.*;
 import africa.semicolon.Blog.data.Repository.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.africa.semicolon.Blog.data.Model.Post;
 import static africa.semicolon.Blog.Utils.Cleaner.cleanup;
 import static africa.semicolon.Blog.Utils.Cryptography.*;
 import static africa.semicolon.Blog.Utils.Mapper.*;
