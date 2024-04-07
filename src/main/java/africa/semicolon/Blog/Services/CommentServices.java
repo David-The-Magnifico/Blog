@@ -7,5 +7,7 @@ import africa.semicolon.Blog.data.Model.User;
 public interface CommentServices {
     Comment addComment(CommentRequest commentRequest, User commenter);
 
+    Comment addComment(CommentRequest createCommentRequest);
+
     Comment addCommentWith(CommentRequest commentRequest, User commenter);
 }
