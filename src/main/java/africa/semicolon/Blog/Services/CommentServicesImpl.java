@@ -15,12 +15,6 @@ public class CommentServicesImpl implements CommentServices {
     private Comments comments;
 
     @Override
-    public Comment addComment(CommentRequest createCommentRequest) {
-        Comment newComment = new Comment(createCommentRequest)map(createCommentRequest);
-        return comments.save(newComment);
-    }
-
-    @Override
     public Comment addCommentWith(CommentRequest commentRequest, User commenter) {
         Comment newComment = map(commentRequest, commenter);
         return comments.save(newComment);
