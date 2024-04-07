@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 @Data
 @Document("Views")
-public class View extends javax.swing.text.View {
+public class View {
     @Id
     private String id;
     @DBRef
