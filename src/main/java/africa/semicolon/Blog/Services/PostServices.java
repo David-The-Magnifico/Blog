@@ -3,7 +3,7 @@ package africa.semicolon.Blog.Services;
 import africa.semicolon.Blog.DTOs.request.*;
 import africa.semicolon.Blog.DTOs.response.*;
 import africa.semicolon.Blog.data.Model.User;
-import java.africa.semicolon.Blog.data.Model.Post;
+import africa.semicolon.Blog.data.Model.Post;
 
 
 public interface PostServices {
