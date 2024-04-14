@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class GetUserPostsResponse {
-    private String userId;
+    private String id;
     private String username;
     private String userPosts;
 }
