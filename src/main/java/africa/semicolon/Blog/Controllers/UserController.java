@@ -106,7 +106,7 @@ public class UserController {
     @GetMapping("/view-posts")
     public ResponseEntity<?> getUserPosts(@RequestBody GetUserPostsRequest getUserPostsRequest) {
         try {
-            var result = userServices.getUserPost(getUserPostsRequest);
+            var result = userServices.getUserPosts(getUserPostsRequest);
             return new ResponseEntity<>(new ApiResponse(true, result), OK);
         }
         catch (Exception e) {
