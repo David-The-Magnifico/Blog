@@ -38,6 +38,7 @@ public class UserServicesImpl implements UserServices {
         return mapLoginResponseWith(savedUser);
     }
 
+
     @Override
     public LogoutUserResponse logout(LogoutRequest logOutRequest) {
         User foundUser = findUserBy(logOutRequest.getUsername());
@@ -53,6 +54,16 @@ public class UserServicesImpl implements UserServices {
         foundUser.getPosts().add(newPost);
         users.save(foundUser);
         return mapCreatePostResponseWith(newPost);
+    }
+
+    @Override
+    public EditPostResponse editPost(EditPostRequest editPostRequest) {
+        return null;
+    }
+
+    @Override
+    public DeletePostResponse deletePost(DeletePostRequest deletePostRequest) {
+        return null;
     }
 
     @Override
