@@ -9,6 +9,7 @@ import africa.semicolon.Blog.data.Model.Post;
 public interface PostServices {
     Post createPostWith(CreatePostRequest createPostRequest);
     EditPostResponse editPostWith(EditPostRequest editPostRequest, Post authorPost);
+    SavePostResponse savePostWith(SavePostRequest savePostRequest, Post authorPost);
     DeletePostResponse deletePostWith(DeletePostRequest deletePostRequest, Post authorPost);
     ViewPostResponse addViewWith(ViewPostRequest viewPostRequest, User viewer);
     CommentResponse addCommentWith(CommentRequest commentRequest, User commenter);
