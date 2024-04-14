@@ -1,9 +1,12 @@
 package Services;
 
 import africa.semicolon.Blog.DTOs.request.*;
-import africa.semicolon.Blog.Services.*;
-import africa.semicolon.Blog.data.Repository.*;
+import africa.semicolon.Blog.Services.PostServices;
+import africa.semicolon.Blog.Services.UserServices;
+import africa.semicolon.Blog.data.Model.User;
+import africa.semicolon.Blog.data.Repository.Posts;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -15,7 +18,7 @@ public class PostServicesTest {
     @Autowired
     private UserServices userServices;
     @Autowired
-    private Users users;
+    private User users;
     @Autowired
     private PostServices postServices;
     @Autowired
@@ -26,7 +29,7 @@ public class PostServicesTest {
     private CommentRequest commentRequest;
 
     @BeforeEach
-    public void setUp() {
+    public void setUpBlog() {
         users.deleteAll();
         posts.deleteAll();
 
@@ -70,7 +73,7 @@ public class PostServicesTest {
         viewsCountResponse = postServices.getNumberOfViews(viewsCountRequest);
         assertThat(viewsCountResponse.getViewsCount(), is(1L));
         foundUser = users.findByUsername(postAuthor);
-        assertThat(foundUser.getPosts().getFirst().getViews(), hasSize(1));
+        assertThat(foundUser.getViews(), hasSize(1));
         assertThat(viewPostResponse.getViewerId(), notNullValue());
     }
     @Test
