@@ -6,5 +6,7 @@ import lombok.Data;
 public class CommentRequest {
     private String commenter;
     private String comment;
-    private String blogPostId;
+    private String PostId;
+
+
 }
