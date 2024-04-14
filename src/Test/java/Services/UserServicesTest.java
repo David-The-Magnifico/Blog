@@ -2,13 +2,13 @@ package Services;
 
 
 import africa.semicolon.Blog.DTOs.request.*;
+import africa.semicolon.Blog.Exception.*;
 import africa.semicolon.Blog.Services.UserServices;
 import africa.semicolon.Blog.data.Repository.Users;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -66,7 +66,7 @@ public class UserServicesTest {
         try {
             userServices.register(registerRequest);
         }
-        catch (UserExistsException e) {
+        catch (UserAlreadyExistsException e) {
             assertThat(e.getMessage(), containsString("username already exists"));
         }
         assertThat(users.count(), is(1L));
@@ -125,12 +125,12 @@ public class UserServicesTest {
         assertThat(savedPost.getContent(), containsString("content"));
 
         editPostRequest.setPostId(savedPost.getId());
-        var editPostResponse = userServices.editPostWith(editPostRequest);
+        var editPostResponse = userServices.editPost(editPostRequest);
         foundUser = users.findByUsername(registerRequest.getUsername().toLowerCase());
         savedPost = foundUser.getPosts().getFirst();
         assertThat(foundUser.getPosts().size(), is(1));
         assertThat(savedPost.getContent(), containsString("newContent"));
-        assertThat(editPostResponse.getPostId(), notNullValue());
+        assertThat(editPostResponse.getId(), notNullValue());
     }
 
     @Test
@@ -142,9 +142,9 @@ public class UserServicesTest {
         assertThat(foundUser.getPosts().size(), is(1));
 
         deletePostRequest.setPostId(savedPost.getId());
-        var deletePostResponse = userServices.deletePostWith(deletePostRequest);
+        var deletePostResponse = userServices.deletePost(deletePostRequest);
         foundUser = users.findByUsername(registerRequest.getUsername().toLowerCase());
-        assertThat(deletePostResponse.getPostId(), notNullValue());
+        assertThat(deletePostResponse.getId(), notNullValue());
     }
 
     @Test
@@ -156,6 +156,6 @@ public class UserServicesTest {
         getUserPostsRequest.setUsername("username");
 
         var getUserPostResponse = userServices.getUserPosts(getUserPostsRequest);
-        assertThat(getUserPostResponse.getUserId(), notNullValue());
+        assertThat(getUserPostResponse.getId(), notNullValue());
     }
 }
