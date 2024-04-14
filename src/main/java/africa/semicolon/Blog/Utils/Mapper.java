@@ -64,7 +64,7 @@ public final class Mapper {
 
     public static EditPostResponse mapEditPostResponseWith(Post post) {
         EditPostResponse editPostResponse = new EditPostResponse();
-        editPostResponse.setPostId(post.getId());
+        editPostResponse.setId(post.getId());
         editPostResponse.setTitle(post.getTitle());
         editPostResponse.setContent(post.getContent());
         editPostResponse.setDateCreated(DateTimeFormatter.ofPattern("dd-MMM-yyyy 'at' HH:mm:ss z").format(post.getDateCreated()));
@@ -73,7 +73,7 @@ public final class Mapper {
 
     public static DeletePostResponse mapDeletePostResponseWith(Post post) {
         DeletePostResponse deletePostResponse = new DeletePostResponse();
-        deletePostResponse.setPostId(post.getId());
+        deletePostResponse.setId(post.getId());
         return deletePostResponse;
     }
 
@@ -107,7 +107,7 @@ public final class Mapper {
 
     public static GetUserPostsResponse mapGetUserPostResponse(User user) {
         GetUserPostsResponse getUserPostsResponse = new GetUserPostsResponse();
-        getUserPostsResponse.setUserId(user.getId());
+        getUserPostsResponse.setId(user.getId());
         getUserPostsResponse.setUsername(user.getUsername());
         getUserPostsResponse.setUserPosts(user.getPosts().toString());
         return getUserPostsResponse;
