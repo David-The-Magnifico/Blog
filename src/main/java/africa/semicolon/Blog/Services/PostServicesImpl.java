@@ -30,13 +30,18 @@ public class PostServicesImpl implements PostServices {
     @Override
     public EditPostResponse editPostWith(EditPostRequest editPostRequest, Post authorPost) {
         Post editedPost = map(editPostRequest, authorPost);
-        posts.save(editedPost);
+        posts.save((Posts) editedPost);
         return mapEditPostResponseWith(editedPost);
     }
 
     @Override
+    public SavePostResponse savePostWith(SavePostRequest savePostRequest, Post authorPost) {
+        return null;
+    }
+
+    @Override
     public DeletePostResponse deletePostWith(DeletePostRequest deletePostRequest, Post authorPost) {
-        posts.delete(authorPost);
+        posts.delete((Posts) authorPost);
         return mapDeletePostResponseWith(authorPost);
     }
 
@@ -45,13 +50,13 @@ public class PostServicesImpl implements PostServices {
         Post post = findPostBy(viewPostRequest.getPostId());
         View newView = viewServices.saveViewOf(viewer);
         post.getViews().add(newView);
-        posts.save(post);
+        posts.save(posts);
         return mapViewPostResponseWith(newView);
     }
 
     @Override
     public CommentResponse addCommentWith(CommentRequest commentRequest, User commenter) {
-        Post post = findPostBy(commentRequest.getBlogPostId());
+        Post post = findPostBy(commentRequest.getPostId());
         View newView = viewServices.saveViewOf(commenter);
         Comment newComment = commentServices.addCommentWith(commentRequest, commenter);
         post.getViews().add(newView);
@@ -68,8 +73,8 @@ public class PostServicesImpl implements PostServices {
     }
 
     private Post findPostBy(String id) {
-        Optional<Post> foundPost = posts.findById(id);
+        Optional<Posts> foundPost = posts.findById(id);
         if (foundPost.isEmpty()) throw new PostNotFoundException("Post not found");
-        return foundPost.get();
+        return (Post) foundPost.get();
     }
 }
